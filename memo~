@@ -1,0 +1,13 @@
+本程序的目的是通过OSKAR生成低频大视场仿真数据，然后使用三种不同的成像算法分别对仿真数据进行成像，并统计不同算法（2dfft wprojection faceting）的时间以及成像质量指标，然后画图进行比较。这只是一个测试版本还需要进一步完善。统计指标方面，时间则是程序执行的时间差，成像质量使用的是仿真所使用的天空模型中，对应源位置的在所成图像的像素值的和。程序执行过程中将所成图像包括天空图像以及指标统计对比图都以png格式保存到对应目录下。程序所包含的文件以及说明如下：
+5-8Mainwindow.py:
+显示主界面，给出下拉三个选择窗口，分别是all，w-projection,faceting,facet-wprojection。其中，all指的是同时运行2dfft/w-projection/faceting三种成像算法，其中后两种需要分别设置层数和划分的片数,facet-wprojection则是依次运行faceting和w-projection两种成像算法，同理也要指定相关参数
+All.py:
+依次通过2dfft/w-projection/faceting成像算法对同一个可见度数据进行成像。运行时，首先指定相应成像算法的参数，然后自动运行并给出结果统计
+Fc.py：
+实现faceting成像算法，运行过程中需要指定运行该成像算法的次数以及每次切片的数目（如果指定参数为n那么切片总数为n*n）
+Wp.py:
+同理，实现了w投影成像算法，可以指定运行次数以及每次运行的层数
+Fc_Wp.py:
+依次实现faceting和w-projection算法
+statistics.txt:统计结果保存在txt文档中
+

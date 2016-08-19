@@ -1,0 +1,18 @@
+f = open('layout.txt','r')
+line = f.readline()
+line1 = line.split()
+lines = []
+while(line):
+	lines.append(line1)
+	line = f.readline()
+	line1 = line.split()
+f1 = open('layout_new.txt','w')
+
+for i in range(len(lines)):
+	for j in lines[i]:
+		f1.write(j)
+		f1.write(' ')
+	f1.write('/n')
+f1.close()
+f.close()
+
